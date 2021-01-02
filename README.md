@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Git checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
   
       - name: Start EMQ X
         uses: namoshek/emqx-github-action@v0.1.0
