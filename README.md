@@ -32,7 +32,7 @@ jobs:
       - name: Start EMQ X
         uses: namoshek/emqx-github-action@v0.1.0
         with:
-          version: '4.2'
+          version: '4.2.5'
   
       - run: test
 ```
