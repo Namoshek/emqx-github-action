@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [4.2, latest]
+        version: [4.2.5, latest]
 
     name: Start EMQ X broker [${{ matrix.version }}]
     steps:
