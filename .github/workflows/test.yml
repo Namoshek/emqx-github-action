@@ -1,0 +1,20 @@
+name: Start EMQ X Broker
+
+on: [push, pull_request]
+
+jobs:
+  test-broker:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [4.2, latest]
+
+    name: Start EMQ X broker [${{ matrix.version }}]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Start broker
+        uses: ./
+        with:
+          version: ${{ matrix.version }}
