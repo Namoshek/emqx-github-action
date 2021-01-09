@@ -1,4 +1,4 @@
-name: Start EMQ X Broker
+name: Test Action
 
 on:
   push:
@@ -9,17 +9,19 @@ on:
 
 jobs:
   test-broker:
+    name: Test EMQ X Docker image version [${{ matrix.version }}]
+   
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        version: [4.2.5, latest]
+        version: ['4.2.5', 'latest']
 
-    name: Start EMQ X broker [${{ matrix.version }}]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Start broker
+      - name: Start EMQ X
         uses: ./
         with:
           version: ${{ matrix.version }}
