@@ -9,7 +9,7 @@ CONTAINERNAME=$5
 echo "Certificates: $CERTIFICATES"
 echo "Config: $CONFIG"
 
-docker_run="docker run --detach --name $CONTAINERNAME"
+docker_run="docker run --detach --name $CONTAINERNAME --env WAIT_FOR_ERLANG=30"
 
 for i in $(echo $PORTS | tr " " "\n")
 do
