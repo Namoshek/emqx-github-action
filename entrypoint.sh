@@ -21,14 +21,10 @@ if [ -n "$CERTIFICATES" ]; then
 fi
 
 if [ -n "$CONFIG" ]; then
-  docker_run="$docker_run --volume $CONFIG:/opt/emqx/etc/emqx_custom.conf:ro"
+  docker_run="$docker_run --volume $CONFIG:/opt/emqx/etc/emqx.conf:ro"
 fi
 
 docker_run="$docker_run emqx/emqx:$VERSION"
-
-if [ -n "$CONFIG" ]; then
-  docker_run="$docker_run /bin/sh -c \"cp /opt/emqx/etc/emqx_custom.conf /opt/emqx/etc/emqx.conf && /bin/sh /usr/bin/start.sh\""
-fi
 
 echo "$docker_run"
 sh -c "$docker_run"
